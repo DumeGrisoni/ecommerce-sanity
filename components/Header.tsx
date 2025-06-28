@@ -1,6 +1,12 @@
 'use client';
 
-import { ClerkLoaded, SignInButton, UserButton, useUser } from '@clerk/nextjs';
+import {
+  ClerkLoaded,
+  SignedIn,
+  SignInButton,
+  UserButton,
+  useUser,
+} from '@clerk/nextjs';
 import Link from 'next/link';
 import Form from 'next/form';
 import { PackageIcon, TrolleyIcon } from '@sanity/icons';
@@ -9,11 +15,10 @@ import { Button } from './ui/button';
 
 const Header = () => {
   const { user } = useUser();
-  console.log(user);
 
   return (
     <header className="flex flex-wrap justify-center  items-center px-4 py-2">
-      <div className="flex flex-wrap justify-center items-center">
+      <div className="flex flex-wrap w-full justify-center items-center">
         <Link
           href={'/'}
           className="text-2xl font-bold hover:opacity-70 cursor-pointer mx-auto sm:mx-0 transi"
@@ -33,7 +38,7 @@ const Header = () => {
           />
         </Form>
 
-        <div className=" flex gap-2">
+        <div className="flex items-center space-x-4 mt-4 flex-1 sm:flex-none">
           <Link
             href={'/cart'}
             className="flex-1 relative flex justify-center items-center sm:justify-start sm:flex-none space-x-2"
@@ -47,7 +52,7 @@ const Header = () => {
             </Button>
           </Link>
           <ClerkLoaded>
-            {user && (
+            <SignedIn>
               <Link
                 href={'/orders'}
                 className="flex-1 relative flex justify-center items-center sm:justify-start sm:flex-none space-x-2"
@@ -60,14 +65,15 @@ const Header = () => {
                   <PackageIcon color="white" />
                 </Button>
               </Link>
-            )}
+            </SignedIn>
 
             {user ? (
-              <div className="flex items-center space-x-2 ">
-                <UserButton afterSwitchSessionUrl="/" />
+              <div className="flex flex-1 items-center justify-center space-x-2 ">
+                <UserButton afterSwitchSessionUrl="/" appearance={{}} />
+
                 <div className="hidden sm:block text-xs">
                   <p className="text-gray-400">Bon retour parmis nous !</p>
-                  <p className="font-bold">{user.fullName}</p>
+                  <p className="font-bold text-sm">{user.fullName}</p>
                 </div>
               </div>
             ) : (
