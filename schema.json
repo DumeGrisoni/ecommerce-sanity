@@ -782,6 +782,31 @@
         },
         "optional": true
       },
+      "genre": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "homme"
+            },
+            {
+              "type": "string",
+              "value": "femme"
+            },
+            {
+              "type": "string",
+              "value": "enfant"
+            },
+            {
+              "type": "string",
+              "value": "unisex"
+            }
+          ]
+        },
+        "optional": true
+      },
       "variants": {
         "type": "objectAttribute",
         "value": {
@@ -817,6 +842,86 @@
                     {
                       "type": "string",
                       "value": "xxl"
+                    },
+                    {
+                      "type": "string",
+                      "value": "32"
+                    },
+                    {
+                      "type": "string",
+                      "value": "33"
+                    },
+                    {
+                      "type": "string",
+                      "value": "34"
+                    },
+                    {
+                      "type": "string",
+                      "value": "35"
+                    },
+                    {
+                      "type": "string",
+                      "value": "36"
+                    },
+                    {
+                      "type": "string",
+                      "value": "37"
+                    },
+                    {
+                      "type": "string",
+                      "value": "38"
+                    },
+                    {
+                      "type": "string",
+                      "value": "39"
+                    },
+                    {
+                      "type": "string",
+                      "value": "40"
+                    },
+                    {
+                      "type": "string",
+                      "value": "41"
+                    },
+                    {
+                      "type": "string",
+                      "value": "42"
+                    },
+                    {
+                      "type": "string",
+                      "value": "43"
+                    },
+                    {
+                      "type": "string",
+                      "value": "44"
+                    },
+                    {
+                      "type": "string",
+                      "value": "45"
+                    },
+                    {
+                      "type": "string",
+                      "value": "4 ans"
+                    },
+                    {
+                      "type": "string",
+                      "value": "6 ans"
+                    },
+                    {
+                      "type": "string",
+                      "value": "8 ans"
+                    },
+                    {
+                      "type": "string",
+                      "value": "10 ans"
+                    },
+                    {
+                      "type": "string",
+                      "value": "12 ans"
+                    },
+                    {
+                      "type": "string",
+                      "value": "14 ans"
                     }
                   ]
                 },

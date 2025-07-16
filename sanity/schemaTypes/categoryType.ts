@@ -16,7 +16,7 @@ export const categoryType = defineType({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'name',
+        source: 'Titre',
         maxLength: 96,
       },
     }),

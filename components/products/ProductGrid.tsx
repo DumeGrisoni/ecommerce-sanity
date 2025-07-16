@@ -7,7 +7,7 @@ import ProductThumbnail from './ProductThumbnail';
 
 const ProductGrid = ({ products }: { products: Products[] }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 px-4 gap-4 mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 px-4 gap-4 lg:gap-6 xl:gap-8 mt-4">
       {products.map((product) => {
         return (
           <AnimatePresence key={product._id}>
