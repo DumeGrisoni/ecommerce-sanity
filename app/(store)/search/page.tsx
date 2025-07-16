@@ -1,3 +1,5 @@
+import { searchProductByName } from '@/sanity/lib/products/searchProductByName';
+
 const SearchPage = async ({
   searchParams,
 }: {
@@ -5,7 +7,13 @@ const SearchPage = async ({
 }) => {
   const { query } = await searchParams;
 
-  return <div>SearchPage fot {query}</div>;
+  const products = await searchProductByName(query);
+
+  if (!products) return <div>Products not found</div>;
+
+  console.log(products);
+
+  return <div>SearchPage for {query}</div>;
 };
 
 export default SearchPage;
