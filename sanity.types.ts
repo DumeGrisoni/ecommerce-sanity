@@ -402,6 +402,176 @@ export type ALL_PRODUCTS_QUERYResult = Array<{
   }>;
 }>;
 
+// Source: ./sanity/lib/products/getProductBySlug.ts
+// Variable: GET_PRODUCT_BY_SLUG_QUERY
+// Query: *[_type == "products" && slug.current == $slug] | order(name asc) [0]
+export type GET_PRODUCT_BY_SLUG_QUERYResult = {
+  _id: string;
+  _type: "products";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  secondImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  categories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
+  }>;
+  genre?: "enfant" | "femme" | "homme" | "unisex";
+  variants?: Array<{
+    size?: "10 ans" | "12 ans" | "14 ans" | "32" | "33" | "34" | "35" | "36" | "37" | "38" | "39" | "4 ans" | "40" | "41" | "42" | "43" | "44" | "45" | "6 ans" | "8 ans" | "l" | "m" | "s" | "xl" | "xs" | "xxl";
+    color?: "beige" | "black" | "blue" | "brown" | "gray" | "green" | "kaki" | "navy" | "orange" | "pink" | "purple" | "red" | "white" | "yellow";
+    stock?: number;
+    isActive?: boolean;
+    _type: "variant";
+    _key: string;
+  }>;
+} | null;
+
+// Source: ./sanity/lib/products/getProductsByGenre.ts
+// Variable: SEARCH_PRODUCT_BY_GENRE_QUERY
+// Query: *[_type == "products" && genre match $searchParam] | order(name asc)
+export type SEARCH_PRODUCT_BY_GENRE_QUERYResult = Array<{
+  _id: string;
+  _type: "products";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  secondImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  categories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
+  }>;
+  genre?: "enfant" | "femme" | "homme" | "unisex";
+  variants?: Array<{
+    size?: "10 ans" | "12 ans" | "14 ans" | "32" | "33" | "34" | "35" | "36" | "37" | "38" | "39" | "4 ans" | "40" | "41" | "42" | "43" | "44" | "45" | "6 ans" | "8 ans" | "l" | "m" | "s" | "xl" | "xs" | "xxl";
+    color?: "beige" | "black" | "blue" | "brown" | "gray" | "green" | "kaki" | "navy" | "orange" | "pink" | "purple" | "red" | "white" | "yellow";
+    stock?: number;
+    isActive?: boolean;
+    _type: "variant";
+    _key: string;
+  }>;
+}>;
+
 // Source: ./sanity/lib/products/searchProductByName.ts
 // Variable: SEARCH_PRODUCT_BY_NAME_QUERY
 // Query: *[_type == "products" && name match $searchParam] | order(name asc)
@@ -511,6 +681,8 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"category\"] | order(name asc)": ALL_CATEGORIES_QUERYResult;
     "*[_type == \"products\"] | order(name asc)": ALL_PRODUCTS_QUERYResult;
+    "*[_type == \"products\" && slug.current == $slug] | order(name asc) [0]": GET_PRODUCT_BY_SLUG_QUERYResult;
+    "*[_type == \"products\" && genre match $searchParam] | order(name asc)": SEARCH_PRODUCT_BY_GENRE_QUERYResult;
     "*[_type == \"products\" && name match $searchParam] | order(name asc)": SEARCH_PRODUCT_BY_NAME_QUERYResult;
     "*[_type == \"sale\" && isActive == true && couponCode == $couponCode] | order(validForm desc)[0]": ACTIVE_SALE_BY_COUPON_CODEResult;
   }
